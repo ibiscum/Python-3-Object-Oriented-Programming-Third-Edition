@@ -14,6 +14,7 @@ def call_exceptor():
 
 try:
     no_return()
-except:
+except Exception:
     print("I caught an exception")
+
 print("executed after the exception")

@@ -10,4 +10,3 @@ with open(filename) as file:
 
 for contact in contacts:
     print("email: {email} -- {last}, {first}".format(**contact))
-

@@ -44,4 +44,3 @@ print(
     "Statistics is Assignment subclass:",
     issubclass(Statistics, Assignment),
 )
-

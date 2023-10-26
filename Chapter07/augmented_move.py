@@ -29,4 +29,3 @@ def augmented_move(
 augmented_move(
     "target", "augmented_move.py", "custom_sequence.py", verbose=True
 )
-

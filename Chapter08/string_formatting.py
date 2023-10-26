@@ -14,4 +14,3 @@ public class {classname} {{
 }}"""
 
 print(template)
-

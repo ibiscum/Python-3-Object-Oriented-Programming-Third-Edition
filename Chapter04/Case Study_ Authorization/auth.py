@@ -49,7 +49,7 @@ class User:
         the sha digest."""
         hash_string = self.username + password
         hash_string = hash_string.encode("utf8")
-        return hashlib.sha256(hash_string).hexdigest()
+        return hashlib.sha3_512(hash_string).hexdigest()
 
     def check_password(self, password):
         """Return True if the password is valid for this
@@ -98,7 +98,8 @@ class Authorizor:
         """Create a new permission that users
         can be added to"""
         try:
-            perm_set = self.permissions[perm_name]
+            # perm_set = self.permissions[perm_name]
+            self.permissions[perm_name]
         except KeyError:
             self.permissions[perm_name] = set()
         else:

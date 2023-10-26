@@ -1,7 +1,8 @@
 .python-version
 .vscode
+.venv
 __pycache__
 lastfailed
 nodeids
 .pytest_cache
-.idea/*
+.idea

@@ -21,12 +21,12 @@ class TemplateEngine:
     def process(self):
         match = DIRECTIVE_RE.search(self.template, pos=self.pos)
         while match:
-            self.outfile.write(self.template[self.pos : match.start()])
+            self.outfile.write(self.template[self.pos: match.start()])
             directive, argument = match.groups()
             method_name = "process_{}".format(directive)
             getattr(self, method_name)(match, argument)
             match = DIRECTIVE_RE.search(self.template, pos=self.pos)
-        self.outfile.write(self.template[self.pos :])
+        self.outfile.write(self.template[self.pos:])
 
     def process_include(self, match, argument):
         with (self.working_dir / argument).open() as includefile:

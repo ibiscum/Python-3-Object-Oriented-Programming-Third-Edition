@@ -1,2 +1,2 @@
-class MyFirstClass: 
-    pass 
+class MyFirstClass:
+    pass

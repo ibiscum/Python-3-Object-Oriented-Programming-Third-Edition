@@ -4,7 +4,6 @@ from notebook import Notebook
 
 class Menu:
     """Display a menu and respond to choices when run."""
-
     def __init__(self):
         self.notebook = Notebook()
         self.choices = {
@@ -18,14 +17,13 @@ class Menu:
     def display_menu(self):
         print(
             """
-Notebook Menu
-
-1. Show all Notes
-2. Search Notes
-3. Add Note
-4. Modify Note
-5. Quit
-"""
+            Notebook Menu
+            1. Show all Notes
+            2. Search Notes
+            3. Add Note
+            4. Modify Note
+            5. Quit
+            """
         )
 
     def run(self):

@@ -28,4 +28,3 @@ class Contact:
     @property
     def full_name(self):
         return "{} {}".format(self.first, self.last)
-
