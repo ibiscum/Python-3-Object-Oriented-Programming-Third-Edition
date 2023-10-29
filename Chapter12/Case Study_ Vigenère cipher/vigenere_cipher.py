@@ -35,4 +35,3 @@ def separate_character(cypher, keyword):
     cypher_num = ord(cypher) - ord("A")
     keyword_num = ord(keyword) - ord("A")
     return chr(ord("A") + (cypher_num - keyword_num) % 26)
-

@@ -1,7 +1,7 @@
 def search(paths, query_q, results_q):
     lines = []
-    for path in paths:
-        lines.extend(l.strip() for l in path.open())
+    for pathv in paths:
+        lines.extend(line.strip() for line in pathv.open())
 
     query = query_q.get()
     while query:

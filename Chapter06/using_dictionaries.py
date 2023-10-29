@@ -20,7 +20,7 @@ random_keys[my_object] = "We can even store objects"
 my_object.avalue = 12
 try:
     random_keys[[1, 2, 3]] = "we can't store lists though"
-except:
+except Exception:
     print("unable to store list\n")
 
 for key, value in random_keys.items():

@@ -13,7 +13,7 @@ def lookup_dns(data):
     domain = b""
     pointer, part_length = 13, data[12]
     while part_length:
-        domain += data[pointer : pointer + part_length] + b"."
+        domain += data[pointer: pointer + part_length] + b"."
         pointer += part_length + 1
         part_length = data[pointer - 1]
 
