@@ -26,9 +26,7 @@ second_artists = {"Nickelback", "Guns N' Roses", "Savage Garden"}
 print("All: {}".format(first_artists.union(second_artists)))
 print("Both: {}".format(second_artists.intersection(first_artists)))
 print(
-    "Either but not both: {}".format(
-        first_artists.symmetric_difference(second_artists)
-    )
+    "Either but not both: {}".format(first_artists.symmetric_difference(second_artists))
 )
 
 bands = {"Guns N' Roses", "Opeth"}

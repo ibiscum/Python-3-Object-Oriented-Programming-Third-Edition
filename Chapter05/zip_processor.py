@@ -39,8 +39,7 @@ class ZipReplace(ZipProcessor):
         for filename in self.temp_directory.iterdir():
             with filename.open() as file:
                 contents = file.read()
-            contents = contents.replace(self.search_string,
-                                        self.replace_string)
+            contents = contents.replace(self.search_string, self.replace_string)
             with filename.open("w") as file:
                 file.write(contents)
 

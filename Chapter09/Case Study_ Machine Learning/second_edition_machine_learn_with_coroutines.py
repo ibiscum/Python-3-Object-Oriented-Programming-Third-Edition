@@ -42,9 +42,7 @@ def nearest_neighbors(model_colors, num_neighbors):
     model = list(model_colors)
     target = yield
     while True:
-        distances = sorted(
-            ((color_distance(c[0], target), c) for c in model)
-        )
+        distances = sorted(((color_distance(c[0], target), c) for c in model))
         target = yield [d[1] for d in distances[0:num_neighbors]]
 
 

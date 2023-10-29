@@ -67,9 +67,7 @@ def compress_dir(in_dir, out_dir):
     futures = []
     for file in (f for f in in_dir.iterdir() if f.suffix == ".bmp"):
         out_file = (out_dir / file.name).with_suffix(".rle")
-        futures.append(
-            executor.submit(compress_image, str(file), str(out_file))
-        )
+        futures.append(executor.submit(compress_image, str(file), str(out_file)))
     for future in futures:
         future.result()
 

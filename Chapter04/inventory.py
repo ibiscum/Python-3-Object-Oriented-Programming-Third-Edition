@@ -41,9 +41,6 @@ except InvalidItemType:
 except OutOfStock:
     print("Sorry, that item is out of stock.")
 else:
-    print(
-        "Purchase complete. There are "
-        "{} {}s left".format(num_left, item_type)
-    )
+    print("Purchase complete. There are " "{} {}s left".format(num_left, item_type))
 finally:
     inv.unlock(item_type)

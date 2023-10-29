@@ -27,4 +27,3 @@ def test_patch(tracker):
     tracker.redis.set.assert_called_once_with(
         "flightno:AC102", "2015-04-01T00:00:00|ON TIME"
     )
-

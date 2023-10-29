@@ -16,9 +16,7 @@ def get_serials(filename):
     device = next(matcher)
     while True:
         try:
-            bus = matcher.send(
-                "(sd \S+) {}.*".format(re.escape(device))
-            )
+            bus = matcher.send("(sd \S+) {}.*".format(re.escape(device)))
             serial = matcher.send("{} \(SERIAL=([^)]*)\)".format(bus))
             yield serial
             device = matcher.send(ERROR_RE)

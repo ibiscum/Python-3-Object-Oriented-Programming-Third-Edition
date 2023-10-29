@@ -16,9 +16,7 @@ class Timer:
         self.events = []
 
     def call_after(self, delay, callback):
-        end_time = datetime.datetime.now() + datetime.timedelta(
-            seconds=delay
-        )
+        end_time = datetime.datetime.now() + datetime.timedelta(seconds=delay)
 
         self.events.append(TimedEvent(end_time, callback))
 

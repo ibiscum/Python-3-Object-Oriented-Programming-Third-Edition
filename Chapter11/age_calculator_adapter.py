@@ -3,9 +3,7 @@ import datetime
 
 class AgeCalculator:
     def __init__(self, birthday):
-        self.year, self.month, self.day = (
-            int(x) for x in birthday.split("-")
-        )
+        self.year, self.month, self.day = (int(x) for x in birthday.split("-"))
 
     def calculate_age(self, date):
         year, month, day = (int(x) for x in date.split("-"))

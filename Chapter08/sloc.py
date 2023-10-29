@@ -22,4 +22,3 @@ def count_sloc(dir_path):
 root_path = pathlib.Path(".")
 
 print(f"{count_sloc(root_path)} lines of python code")
-

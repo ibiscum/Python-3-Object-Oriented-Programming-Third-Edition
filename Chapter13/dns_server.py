@@ -13,7 +13,7 @@ def lookup_dns(data):
     domain = b""
     pointer, part_length = 13, data[12]
     while part_length:
-        domain += data[pointer: pointer + part_length] + b"."
+        domain += data[pointer : pointer + part_length] + b"."
         pointer += part_length + 1
         part_length = data[pointer - 1]
 
@@ -39,19 +39,13 @@ class DNSProtocol(asyncio.DatagramProtocol):
     def datagram_received(self, data, addr):
         print("Received request from {}".format(addr[0]))
         domain, ip = lookup_dns(data)
-        print(
-            "Sending IP {} for {} to {}".format(
-                domain.decode(), ip, addr[0]
-            )
-        )
+        print("Sending IP {} for {} to {}".format(domain.decode(), ip, addr[0]))
         self.transport.sendto(create_response(data, ip), addr)
 
 
 loop = asyncio.get_event_loop()
 transport, protocol = loop.run_until_complete(
-    loop.create_datagram_endpoint(
-        DNSProtocol, local_addr=("127.0.0.1", 4343)
-    )
+    loop.create_datagram_endpoint(DNSProtocol, local_addr=("127.0.0.1", 4343))
 )
 print("DNS Server running")
 

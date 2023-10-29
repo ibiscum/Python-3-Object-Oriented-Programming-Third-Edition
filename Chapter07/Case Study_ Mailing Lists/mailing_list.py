@@ -5,13 +5,7 @@ from email.mime.text import MIMEText
 
 
 def send_email(
-    subject,
-    message,
-    from_addr,
-    *to_addrs,
-    host="localhost",
-    port=1025,
-    headers=None
+    subject, message, from_addr, *to_addrs, host="localhost", port=1025, headers=None
 ):
     headers = headers if headers else {}
 
@@ -47,13 +41,9 @@ class MailingList:
                 emails.add(e)
         return emails
 
-    def send_mailing(
-        self, subject, message, from_addr, *groups, headers=None
-    ):
+    def send_mailing(self, subject, message, from_addr, *groups, headers=None):
         emails = self.emails_in_groups(*groups)
-        send_email(
-            subject, message, from_addr, *emails, headers=headers
-        )
+        send_email(subject, message, from_addr, *emails, headers=headers)
 
     def save(self):
         with open(self.data_file, "w") as file:

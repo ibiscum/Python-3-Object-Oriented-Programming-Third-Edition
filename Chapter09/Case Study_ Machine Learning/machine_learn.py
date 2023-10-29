@@ -6,7 +6,7 @@ dataset_filename = "colors.csv"
 
 
 def hex_to_rgb(hex_color):
-    return tuple(int(hex_color[i: i + 2], 16) for i in range(1, 6, 2))
+    return tuple(int(hex_color[i : i + 2], 16) for i in range(1, 6, 2))
 
 
 def load_colors(filename):
@@ -33,16 +33,12 @@ def color_distance(color1, color2):
 def nearest_neighbors(model_colors, target_colors, num_neighbors=5):
     model_colors = list(model_colors)
     for target in target_colors:
-        distances = sorted(
-            ((color_distance(c[0], target), c) for c in model_colors)
-        )
+        distances = sorted(((color_distance(c[0], target), c) for c in model_colors))
         yield target, [d[1] for d in distances[:num_neighbors]]
 
 
 def name_colors(model_colors, target_colors, num_neighbors=5):
-    for target, near in nearest_neighbors(
-        model_colors, target_colors, num_neighbors=5
-    ):
+    for target, near in nearest_neighbors(model_colors, target_colors, num_neighbors=5):
         name_guess = Counter(n[1] for n in near).most_common()[0][0]
         yield target, name_guess
 

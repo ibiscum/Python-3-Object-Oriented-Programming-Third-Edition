@@ -14,7 +14,5 @@ class FlightStatusTracker:
             raise ValueError("{} is not a valid status".format(status))
 
         key = "flightno:{}".format(flight)
-        value = "{}|{}".format(
-            datetime.datetime.now().isoformat(), status
-        )
+        value = "{}|{}".format(datetime.datetime.now().isoformat(), status)
         self.redis.set(key, value)

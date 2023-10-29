@@ -23,9 +23,7 @@ print("Tammy's Lesson:", grader.get_lesson("Tammy"))
 print("Tammy's check:", grader.check_assignment("Tammy", "avg=5.25"))
 print(
     "Tammy's other check:",
-    grader.check_assignment(
-        "Tammy", "avg = statistics.mean([1, 5, 18, -3])"
-    ),
+    grader.check_assignment("Tammy", "avg = statistics.mean([1, 5, 18, -3])"),
 )
 
 print(grader.assignment_summary("Tammy"))

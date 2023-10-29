@@ -21,10 +21,7 @@ class LinkCollector:
             self.visited_links.add(url)
             page = str(urlopen(url).read())
             links = LINK_REGEX.findall(page)
-            links = {
-                self.normalize_url(urlparse(url).path, link)
-                for link in links
-            }
+            links = {self.normalize_url(urlparse(url).path, link) for link in links}
             self.collected_links[url] = links
             for link in links:
                 self.collected_links.setdefault(link, set())
@@ -39,12 +36,7 @@ class LinkCollector:
         elif link.startswith("/"):
             return self.url + link.rstrip("/")
         else:
-            return (
-                self.url
-                + path.rpartition("/")[0]
-                + "/"
-                + link.rstrip("/")
-            )
+            return self.url + path.rpartition("/")[0] + "/" + link.rstrip("/")
 
 
 if __name__ == "__main__":

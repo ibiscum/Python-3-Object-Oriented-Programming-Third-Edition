@@ -2,9 +2,7 @@ import shutil
 import os.path
 
 
-def augmented_move(
-    target_folder, *filenames, verbose=False, **specific
-):
+def augmented_move(target_folder, *filenames, verbose=False, **specific):
     """Move all filenames into the target_folder, allowing
     specific treatment of certain files."""
 
@@ -26,6 +24,4 @@ def augmented_move(
             shutil.move(filename, target_path)
 
 
-augmented_move(
-    "target", "augmented_move.py", "custom_sequence.py", verbose=True
-)
+augmented_move("target", "augmented_move.py", "custom_sequence.py", verbose=True)

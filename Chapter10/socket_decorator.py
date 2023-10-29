@@ -23,11 +23,7 @@ class LogSocket:
         self.socket = socket
 
     def send(self, data):
-        print(
-            "Sending {0} to {1}".format(
-                data, self.socket.getpeername()[0]
-            )
-        )
+        print("Sending {0} to {1}".format(data, self.socket.getpeername()[0]))
         self.socket.send(data)
 
     def close(self):
@@ -50,4 +46,3 @@ try:
         respond(LogSocket(client))  # One decorator
 finally:
     server.close()
-

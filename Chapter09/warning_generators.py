@@ -5,9 +5,7 @@ inname, outname = sys.argv[1:3]
 
 with open(inname) as infile:
     with open(outname, "w") as outfile:
-        warnings = (
-            l.replace("\tWARNING", "") for l in infile if "WARNING" in l
-        )
+        warnings = (l.replace("\tWARNING", "") for l in infile if "WARNING" in l)
         for l in warnings:
             outfile.write(l)
 
@@ -60,9 +58,7 @@ with open(inname) as infile:
 # Generator with yield from
 def warnings_filter(infilename):
     with open(infilename) as infile:
-        yield from (
-            l.replace("\tWARNING", "") for l in infile if "WARNING" in l
-        )
+        yield from (l.replace("\tWARNING", "") for l in infile if "WARNING" in l)
 
 
 filter = warnings_filter(inname)

@@ -19,4 +19,3 @@ def test_osfiles(temp_dir):
     assert len(dir_contents) == 2
     assert "a" in dir_contents
     assert "b" in dir_contents
-

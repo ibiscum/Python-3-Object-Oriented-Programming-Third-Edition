@@ -17,36 +17,26 @@ class Application(tk.Frame):
         return next(self.csv_reader)
 
     def mk_grid(self, widget, column, row, columnspan=1):
-        widget.grid(
-            column=column, row=row, columnspan=columnspan, sticky="news"
-        )
+        widget.grid(column=column, row=row, columnspan=columnspan, sticky="news")
 
     def create_widgets(self):
         color_text, color_bg = self.next_color()
-        self.color_box = tk.Label(
-            self, bg=color_bg, width="30", height="15"
-        )
+        self.color_box = tk.Label(self, bg=color_bg, width="30", height="15")
         self.mk_grid(self.color_box, 0, 0, 2)
 
         self.color_label = tk.Label(self, text=color_text, height="3")
         self.mk_grid(self.color_label, 0, 1, 2)
 
-        self.no_button = tk.Button(
-            self, command=self.count_next, text="No"
-        )
+        self.no_button = tk.Button(self, command=self.count_next, text="No")
         self.mk_grid(self.no_button, 0, 2)
 
-        self.yes_button = tk.Button(
-            self, command=self.count_yes, text="Yes"
-        )
+        self.yes_button = tk.Button(self, command=self.count_yes, text="Yes")
         self.mk_grid(self.yes_button, 1, 2)
 
         self.percent_accurate = tk.Label(self, height="3", text="0%")
         self.mk_grid(self.percent_accurate, 0, 3, 2)
 
-        self.quit = tk.Button(
-            self, text="Quit", command=root.destroy, bg="#ffaabb"
-        )
+        self.quit = tk.Button(self, text="Quit", command=root.destroy, bg="#ffaabb")
         self.mk_grid(self.quit, 0, 4, 2)
 
     def count_yes(self):

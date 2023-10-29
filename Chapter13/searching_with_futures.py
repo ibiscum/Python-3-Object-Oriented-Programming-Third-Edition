@@ -29,8 +29,6 @@ with ThreadPoolExecutor(max_workers=10) as executor:
         elif future.done():
             subdirs = future.result()
             for subdir in subdirs:
-                futures.append(
-                    executor.submit(find_files, subdir, query)
-                )
+                futures.append(executor.submit(find_files, subdir, query))
         else:
             futures.append(future)

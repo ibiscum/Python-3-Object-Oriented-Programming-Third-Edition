@@ -34,9 +34,7 @@ class TempGetter(Thread):
         )
         with urlopen(url) as stream:
             xml = ElementTree.parse(stream)
-            self.temperature = xml.find(
-                "currentConditions/temperature"
-            ).text
+            self.temperature = xml.find("currentConditions/temperature").text
 
 
 threads = [TempGetter(c) for c in CITIES]
@@ -49,9 +47,4 @@ for thread in threads:
 
 for thread in threads:
     print(f"it is {thread.temperature}°C in {thread.city}")
-print(
-    "Got {} temps in {} seconds".format(
-        len(threads), time.time() - start
-    )
-)
-
+print("Got {} temps in {} seconds".format(len(threads), time.time() - start))

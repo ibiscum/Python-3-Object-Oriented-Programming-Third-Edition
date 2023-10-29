@@ -21,9 +21,7 @@ async def sort_request(reader, writer):
     print("Received connection")
     length = await reader.read(8)
     data = await reader.readexactly(int.from_bytes(length, "big"))
-    result = await asyncio.get_event_loop().run_in_executor(
-        None, sort_in_process, data
-    )
+    result = await asyncio.get_event_loop().run_in_executor(None, sort_in_process, data)
     print("Sorted list")
     writer.write(result)
     writer.close()
@@ -32,9 +30,7 @@ async def sort_request(reader, writer):
 
 loop = asyncio.get_event_loop()
 loop.set_default_executor(ProcessPoolExecutor())
-server = loop.run_until_complete(
-    asyncio.start_server(sort_request, "127.0.0.1", 2015)
-)
+server = loop.run_until_complete(asyncio.start_server(sort_request, "127.0.0.1", 2015))
 print("Sort Service running")
 
 loop.run_forever()

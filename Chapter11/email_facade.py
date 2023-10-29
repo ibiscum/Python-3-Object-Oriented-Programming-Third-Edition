@@ -13,9 +13,9 @@ class EmailFacade:
             from_email = "{0}@{1}".format(self.username, self.host)
         else:
             from_email = self.username
-        message = (
-            "From: {0}\r\n" "To: {1}\r\n" "Subject: {2}\r\n\r\n{3}"
-        ).format(from_email, to_email, subject, message)
+        message = ("From: {0}\r\n" "To: {1}\r\n" "Subject: {2}\r\n\r\n{3}").format(
+            from_email, to_email, subject, message
+        )
 
         smtp = smtplib.SMTP(self.host)
         smtp.login(self.username, self.password)
@@ -23,9 +23,7 @@ class EmailFacade:
 
     def get_inbox(self):
         mailbox = imaplib.IMAP4(self.host)
-        mailbox.login(
-            bytes(self.username, "utf8"), bytes(self.password, "utf8")
-        )
+        mailbox.login(bytes(self.username, "utf8"), bytes(self.password, "utf8"))
         mailbox.select()
         x, data = mailbox.search(None, "ALL")
         messages = []

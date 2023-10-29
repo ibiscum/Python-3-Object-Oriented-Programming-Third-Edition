@@ -11,8 +11,7 @@ class Silly:
         print("Whoah, you killed silly!")
         del self._silly
 
-    silly = property(_get_silly, _set_silly, _del_silly,
-                     "This is a silly property")
+    silly = property(_get_silly, _set_silly, _del_silly, "This is a silly property")
 
 
 class SillyDecorated:

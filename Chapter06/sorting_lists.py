@@ -24,4 +24,3 @@ class WeirdSortee:
                 self.sort_num == object.number,
             )
         )
-
